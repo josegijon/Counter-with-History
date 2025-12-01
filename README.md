@@ -13,7 +13,6 @@ A simple React project focused on practicing fundamental concepts such as compon
 - [What I Learned](#what-i-learned)
 - [Tech Stack](#tech-stack)
 - [Screenshots](#screenshots)
-- [Future Improvements](#future-improvements)
 
 ---
 
