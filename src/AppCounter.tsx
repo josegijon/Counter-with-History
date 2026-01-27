@@ -109,7 +109,7 @@ export const AppCounter = () => {
                         </div>
                     </div>
 
-                    <HistorySection currentCounter={counter} history={previousNumber} />
+                    <HistorySection history={previousNumber} />
                     <Statistics increments={counterIncrement} decrements={counterDecrement} />
 
                 </div>

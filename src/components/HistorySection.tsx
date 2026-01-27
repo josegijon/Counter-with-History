@@ -2,11 +2,10 @@ import { type FC } from "react";
 import { HistoryItem } from "./HistoryItem";
 
 interface Props {
-    currentCounter: number;
     history: number[];
 }
 
-export const HistorySection: FC<Props> = ({ currentCounter, history }: Props) => {
+export const HistorySection: FC<Props> = ({ history }: Props) => {
     return (
         <div className="border-t border-white pt-6 relative z-10">
             <div className="flex items-center justify-between mb-4">
