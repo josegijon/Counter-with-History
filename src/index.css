@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
-.bg-gradient {
-  @apply bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 min-h-screen flex items-center justify-center p-4 text-white;
+@theme {
+  /* Brakpoints */
+  --breakpoint-4xs: 400px;
+  --breakpoint-3xs: 450px;
+  --breakpoint-2xs: 500px;
+  --breakpoint-xs: 550px;
+
+  /* Colors */
+  --color-primary: #135bec;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
