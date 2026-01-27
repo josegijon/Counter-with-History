@@ -1,3 +1,4 @@
+import { type FC } from "react";
 import { ArrowDownLeft, ArrowUpRight } from "lucide-react"
 
 interface StatisticsProps {
@@ -5,7 +6,7 @@ interface StatisticsProps {
     decrements: number;
 }
 
-export const Statistics = ({ increments, decrements }: StatisticsProps) => {
+export const Statistics: FC<StatisticsProps> = ({ increments, decrements }) => {
     return (
         <div className="mt-8 flex items-center justify-center gap-6 text-sm text-slate-500 font-medium">
             <div className="flex items-center gap-2">
