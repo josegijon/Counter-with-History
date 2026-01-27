@@ -19,9 +19,7 @@ export const useCounter = (initialValue: number = 0) => {
     };
 
     const handleAdd = () => updateCounter(counter + 1, true);
-    const handleAddPlus = () => updateCounter(counter + 10, true);
     const handleSubtract = () => updateCounter(counter - 1, false);
-    const handleSubtractPlus = () => updateCounter(counter - 10, false);
 
     const handleReset = () => {
         setCounter(initialValue);
@@ -40,9 +38,14 @@ export const useCounter = (initialValue: number = 0) => {
         }
 
         setCounter(previousNumber[1]);
-        // previousNumber.shift(); MAL, ESTÁ MUTANDO
         setPreviousNumber(previousNumber.slice(1));
     }
+
+    const handleSetCounter = (newValue: number) => {
+        setCounter(newValue);
+        setPreviousNumber([newValue, ...previousNumber]);
+    }
+
 
     return {
         // Values
@@ -53,10 +56,9 @@ export const useCounter = (initialValue: number = 0) => {
 
         // Methods
         handleAdd,
-        handleAddPlus,
         handleSubtract,
-        handleSubtractPlus,
         handleReset,
         handleUndo,
+        handleSetCounter,
     };
 }
