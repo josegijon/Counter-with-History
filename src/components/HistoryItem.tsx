@@ -1,11 +1,12 @@
 import { MoveDownLeft, MoveUpRight, Pencil } from "lucide-react";
+import type { FC } from "react";
 
 interface HistoryItemProps {
     currentValue: number;
     previousValue: number;
 }
 
-export const HistoryItem = ({ currentValue: currentValue, previousValue }: HistoryItemProps) => {
+export const HistoryItem: FC<HistoryItemProps> = ({ currentValue: currentValue, previousValue }) => {
 
     const difference = currentValue - previousValue;
 
