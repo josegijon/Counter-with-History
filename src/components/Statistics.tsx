@@ -17,7 +17,7 @@ export const Statistics = ({ increments, decrements }: StatisticsProps) => {
 
             <div className="flex items-center gap-2">
                 <ArrowDownLeft size={24} />
-                <span>Increments: <b className="text-slate-300">{decrements}</b></span>
+                <span>Decrements: <b className="text-slate-300">{decrements}</b></span>
             </div>
         </div>
     )
