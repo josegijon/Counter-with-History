@@ -3,14 +3,9 @@ import { HistorySection } from "./components/HistorySection";
 import { useCounter } from "./hooks/useCounter"
 import { Statistics } from "./components/Statistics";
 import { useState } from "react";
+import { glassPanel } from "./constants/styles";
+import { CounterDisplay } from "./components/CounterDisplay";
 
-export const getCounterColor = (value: number) => {
-    if (value < 0) return 'text-red-500';
-    if (value > 0) return 'text-green-500';
-    return 'text-white';
-};
-
-const glassPanel = 'bg-white/3 backdrop-blur-md border border-white/10';
 
 export const AppCounter = () => {
 
@@ -19,11 +14,13 @@ export const AppCounter = () => {
     const [inputValue, setInputValue] = useState<string>('');
 
     const handleSubmit = () => {
-        if (inputValue && inputValue.length > 0) {
-            handleSetCounter(Number(inputValue));
+        const parsed = Number(inputValue);
+
+        if (!isNaN(parsed) && inputValue.trim() !== '') {
+            handleSetCounter(parsed);
             setInputValue('');
         }
-    }
+    };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
@@ -36,14 +33,7 @@ export const AppCounter = () => {
             <main className="flex-1 flex flex-col items-center justify-center p-4">
                 <div className={`${glassPanel} rounded-3xl w-full max-w-md p-8 shadow-2xl flex flex-col gap-8 relative overflow-hidden`}>
                     <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 blur-[80px] rounded-full"></div>
-                    <div className="text-center relative z-10">
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-2 block">
-                            Current Count
-                        </span>
-                        <h1 className="text-white text-[120px] font-extrabold leading-none tracking-tighter drop-shadow-lg">
-                            {counter}
-                        </h1>
-                    </div>
+                    <CounterDisplay value={counter} />
 
                     <div className="flex gap-4 relative z-10">
                         <button
