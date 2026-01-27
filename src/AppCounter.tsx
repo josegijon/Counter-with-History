@@ -5,6 +5,7 @@ import { Statistics } from "./components/Statistics";
 import { useState } from "react";
 import { glassPanel } from "./constants/styles";
 import { CounterDisplay } from "./components/CounterDisplay";
+import { CounterControls } from "./components/CounterControls";
 
 
 export const AppCounter = () => {
@@ -35,22 +36,7 @@ export const AppCounter = () => {
                     <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 blur-[80px] rounded-full"></div>
                     <CounterDisplay value={counter} />
 
-                    <div className="flex gap-4 relative z-10">
-                        <button
-                            className="flex-1 flex items-center justify-center gap-2 rounded-2xl h-16 bg-success/10 border border-success/20 text-success hover:bg-success/20 transition-all cursor-pointer active:scale-95 group"
-                            onClick={handleAdd}
-                        >
-                            <Plus size={24} />
-                            <span className="font-bold text-lg hidden 3xs:block">Increment</span>
-                        </button>
-                        <button
-                            className="flex-1 flex items-center justify-center gap-2 rounded-2xl h-16 bg-danger/10 border border-danger/20 text-danger hover:bg-danger/20 transition-all cursor-pointer active:scale-95 group"
-                            onClick={handleSubtract}
-                        >
-                            <Minus size={24} />
-                            <span className="font-bold text-lg hidden 3xs:block">Decrement</span>
-                        </button>
-                    </div>
+                    <CounterControls onIncrement={handleAdd} onDecrement={handleSubtract} />
 
                     <div className="flex flex-col 3xs:flex-row items-center justify-between gap-4 relative z-10">
                         <div className="flex-1">
